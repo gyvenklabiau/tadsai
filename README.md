@@ -1,1 +1,1 @@
-berlinskas.lt
+https://berlinskas.lt
