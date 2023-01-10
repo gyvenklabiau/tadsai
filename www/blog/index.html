@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>blog</title>
+        <meta charset="utf-8">
+        <style>
+            * { font-size: 3vw; font-family: monospace; background-color: #000; color: #fff; }
+            body { margin: 3vw; }
+            h1 { font-weight: bold; font-size: 6vw; }
+        </style>
+        <script>
+          function e(id) { return document.getElementById(id) }
+          function a(e, an, av) { e.setAttribute(an, av) }
+        </script>
+    </head>
+    <body>
+        <div class="entry">
+            <clock>
+                <style>
+                    svg {
+                        max-height: 30vh;
+                        margin: auto;;
+                    }
+                    line {
+                        stroke: rgb(100,100,100);
+                        stroke-width: 10
+                    }
+                    text {
+                        font-size: 80px;
+                        fill: #fff;
+                        font-family: monospace;
+                        transform: translateX(-50px);
+                    }
+                    
+                    #arrow {
+                        stroke: rgb(64, 128, 128);
+                        stroke-width: 2 0;
+                    }
+                </style>
+                <svg viewBox="0 0 1000 1000">
+                    <rect width="740" height="740" x="130" y="130"></rect>
+                    <line id="1" x1="140" y1="140" x2="860" y2="860"></line>
+                    <line id="2" x1="860" y1="140" x2="140" y2="860"></line>
+                    <line id="3" x1="140" y1="500" x2="860" y2="500"></line>
+                    <line id="4" x1="500" y1="140" x2="500" y2="860"></line>
+                    <line id="arrow" x1="500" y1="500" x2="266" y2="860"></line>
+                    <text x="530" y="100">0</text>
+                    <text x="950" y="100">3</text>
+                    <text x="950" y="520">6</text>
+                    <text x="950" y="950">9</text>
+                    <text x="500" y="950">12</text>
+                    <text x="70" y="950">15</text>
+                    <text x="70" y="520">18</text>
+                    <text x="70" y="100">21</text>
+                </svg>
+                <script>
+                  setArrow()
+                  setInterval(setArrow, 30000)
+            
+                  function setArrow() {
+            
+                    const arrow = e('arrow')
+
+                    const date = new Date()
+                    const hours = date.getHours()
+                    const minutes = date.getMinutes()
+            
+                    const total_minutes = hours * 60 + minutes
+            
+                    if(total_minutes<180) {
+                      a(arrow,'y2',140)
+                      a(arrow,'x2', 500 + total_minutes * 2)
+                    }
+                    else if(total_minutes <= 360) {
+                      a(arrow,'y2', 140 + ( total_minutes - 180 ) * 2)
+                      a(arrow,'x2', 860)
+                    }
+                    else if(total_minutes <= 540) {
+                      a(arrow,'y2',500 + ( total_minutes - 360) *2)
+                      a(arrow,'x2', 860)
+                    }
+                    else if(total_minutes <= 720) {
+                      a(arrow,'y2',860)
+                      a(arrow,'x2', 860 - ( total_minutes - 540 ) * 2)
+                    }
+                    else if(total_minutes <= 900) {
+                      a(arrow,'y2',860)
+                      a(arrow,'x2', 500 - ( total_minutes - 720 ) * 2)
+                    }
+                    else if(total_minutes <= 1080) {
+                      a(arrow,'y2', 860 - (total_minutes - 900) * 2)
+                      a(arrow,'x2', 140)
+                    }
+                    else if(total_minutes <= 1260) {
+                      a(arrow,'y2',500 - (total_minutes - 1080) * 2)
+                      a(arrow,'x2', 140)
+                    }
+                    else {
+                      a(arrow,'y2',140)
+                      a(arrow,'x2', 140 + (total_minutes - 1260) *2)
+                    }
+                  }
+              </script>
+            </clock>
+            <h1>Time</h1>
+            <p>When looking at 24 hour clock a day can be easily divided into 2, 4 and 8 segments.</p>
+            <p>When it consists of 2 each of them is 12 hours.</p>
+            <p>It can also be 4 segments of 6 hours each.</p>
+            <p>Or 8 periods of 3 hours each.</p>
+            <p>Surely the simplest and most common amount of time is one hour.</p>
+            <p>A funny way to call a 24 hour day as often the part of that time is night. </p>
+            <p>But what is the english word for 24 hour cycle?</p>
+            <p>Some like to call the 2 periods AM/PM and leave the writing of time like 1420 for military purposes.</p>
+            <p>How many minutes per day?</p>
+            <p>24 * 60 = 1440</p>
+            <p>I decided to spend 23 minutes a day writing this blog.</p>
+            <p>I might try doing it daily. I might skip a few days. And sometimes I might do some more.</p>
+            <p>However, if one thing I have learned in my 34 years of life is that time can be running faster and slower.</p>
+            <p>In some way you are in control.</p>
+            <p>But its not an easy decision.</p>
+            <p>Understanding time is something that interested me lately.</p>
+            <p>I've done experimented a bit with it.</p>
+            <p>Now it seems like a good time to start a blog.</p>
+            <p>Some might say that its a bit late for that. But as someone who never had a one I don't really care.</p>
+            <p>One thing that comes surprising me again and again is how the time is not as linear as we tend to think of it.</p>
+            <p>So perhaps its never too late for anything?</p>
+        </div>
+    </body>
+</html>

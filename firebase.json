@@ -1,0 +1,19 @@
+{
+  "database": {
+    "rules": "db.json"
+  },
+  "hosting": {
+    "public": "www",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "remoteconfig": {
+    "template": "cfg.json"
+  }
+}
